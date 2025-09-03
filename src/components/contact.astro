@@ -10,7 +10,7 @@ export interface Props {
 const { 
   title = "Contactez-moi",
   email = "karnouukouadiovianney@gmail.com",
-  phone = "+225 07 08 03 03 93",
+  phone = "+225 05 55 10 73 12 ",
   linkedin = "https://www.linkedin.com/in/karnou-vianney-kouadio-671688324/",
   github = "https://github.com/kouadiokarnou7"
 } = Astro.props;
@@ -23,22 +23,54 @@ const {
     <!-- Informations de contact -->
     <div class="contact-info">
       <h3>Mes coordonnées</h3>
-      <ul>
-        <li>
-          <strong>Email:</strong> 
-          <a href={`mailto:${email}`}>{email}</a>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <div class="contact-icon email-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <strong>Email</strong>
+            <a href={`mailto:${email}`}>{email}</a>
+          </div>
         </li>
-        <li>
-          <strong>Téléphone:</strong> 
-          <a href={`tel:${phone}`}>{phone}</a>
+        
+        <li class="contact-item">
+          <div class="contact-icon phone-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <strong>Téléphone</strong>
+            <a href={`tel:${phone}`}>{phone}</a>
+          </div>
         </li>
-        <li>
-          <strong>LinkedIn:</strong> 
-          <a href={linkedin} target="_blank" rel="noopener noreferrer">Mon profil LinkedIn</a>
+        
+        <li class="contact-item">
+          <div class="contact-icon linkedin-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <strong>LinkedIn</strong>
+            <a href={linkedin} target="_blank" rel="noopener noreferrer">Mon profil LinkedIn</a>
+          </div>
         </li>
-        <li>
-          <strong>GitHub:</strong> 
-          <a href={github} target="_blank" rel="noopener noreferrer">Mon profil GitHub</a>
+        
+        <li class="contact-item">
+          <div class="contact-icon github-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <strong>GitHub</strong>
+            <a href={github} target="_blank" rel="noopener noreferrer">Mon profil GitHub</a>
+          </div>
         </li>
       </ul>
     </div>
@@ -46,7 +78,7 @@ const {
     <!-- Formulaire de contact -->
     <div class="contact-form">
       <h3>Envoyez-moi un message</h3>
-      <form action="https://formspree.io/f/xovnpvne" method="POST" id="contactForm">
+      <form action="https://formspree.io/f/mqadgezo" method="POST" id="contactForm">
         <div class="form-group">
           <label for="name">Nom complet *</label>
           <input 
@@ -55,6 +87,7 @@ const {
             name="name" 
             required 
             placeholder="Votre nom complet"
+            autocomplete="name"
           />
         </div>
 
@@ -66,6 +99,7 @@ const {
             name="email" 
             required 
             placeholder="votre.email@exemple.com"
+            autocomplete="email"
           />
         </div>
 
@@ -91,8 +125,20 @@ const {
         </div>
 
         <button type="submit" class="submit-btn">
-          <span class="btn-text">Envoyer le message</span>
-          <span class="btn-loading" style="display: none;">Envoi en cours...</span>
+          <span class="btn-text">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+            </svg>
+            Envoyer le message
+          </span>
+          <span class="btn-loading" style="display: none;">
+            <svg class="spinner" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" opacity="0.3"/>
+              <path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" d="M12 2 A10 10 0 0 1 22 12"/>
+            </svg>
+            Envoi en cours...
+          </span>
         </button>
       </form>
 
@@ -123,39 +169,105 @@ const {
     font-size: 2.5rem;
     color: #2c3e50;
     margin-bottom: 2rem;
+    font-weight: 700;
   }
 
   .contact-info {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .contact-info h3 {
     color: #2c3e50;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
+    font-weight: 600;
   }
 
-  .contact-info ul {
+  .contact-list {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
 
-  .contact-info li {
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
   }
 
-  .contact-info a {
+  .contact-item:hover {
+    background: #f8f9fa;
+    border-color: #e9ecef;
+    transform: translateX(5px);
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .email-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .phone-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+  }
+
+  .linkedin-icon {
+    background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+    color: white;
+  }
+
+  .github-icon {
+    background: linear-gradient(135deg, #333 0%, #24292e 100%);
+    color: white;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact-details strong {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-details a {
     color: #3498db;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
   }
 
-  .contact-info a:hover {
+  .contact-details a:hover {
     color: #2980b9;
     text-decoration: underline;
   }
@@ -163,14 +275,17 @@ const {
   .contact-form {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .contact-form h3 {
     color: #2c3e50;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .form-group {
@@ -182,23 +297,27 @@ const {
     margin-bottom: 0.5rem;
     color: #2c3e50;
     font-weight: 600;
+    font-size: 0.9rem;
   }
 
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.875rem;
     border: 2px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
     font-family: inherit;
+    background: #fafafa;
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
     border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
   }
 
   .form-group textarea {
@@ -211,32 +330,70 @@ const {
     color: white;
     border: none;
     padding: 1rem 2rem;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
   }
 
   .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
   }
 
   .submit-btn:disabled {
-    opacity: 0.7;
+    opacity: 0.8;
     cursor: not-allowed;
     transform: none;
+  }
+
+  .btn-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .form-status {
     margin-top: 1rem;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     font-weight: 600;
     display: none;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .form-status.success {
@@ -267,6 +424,41 @@ const {
     .contact h2 {
       font-size: 2rem;
     }
+
+    .contact-item {
+      padding: 0.75rem;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-details strong {
+      font-size: 0.8rem;
+    }
+
+    .contact-details a {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .contact-icon {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
   }
 </style>
 
@@ -284,18 +476,44 @@ const {
       return;
     }
 
+    // Animation au focus des inputs
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        this.parentElement?.classList.add('focused');
+      });
+      
+      input.addEventListener('blur', () => {
+        this.parentElement?.classList.remove('focused');
+      });
+    });
+
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
+      
+      // Validation côté client améliorée
+      const formData = new FormData(form);
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const message = formData.get('message') as string;
+
+      if (!name.trim() || !email.trim() || !message.trim()) {
+        showStatus('error', 'Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showStatus('error', 'Veuillez entrer une adresse email valide.');
+        return;
+      }
       
       // Afficher l'état de chargement
       submitBtn.disabled = true;
       btnText.style.display = 'none';
-      btnLoading.style.display = 'inline';
+      btnLoading.style.display = 'flex';
       formStatus.style.display = 'none';
 
       try {
-        const formData = new FormData(form);
-        
         const response = await fetch(form.action, {
           method: 'POST',
           body: formData,
@@ -305,26 +523,37 @@ const {
         });
 
         if (response.ok) {
-          // Succès
-          formStatus.className = 'form-status success';
-          formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai bientôt.';
-          formStatus.style.display = 'block';
+          showStatus('success', 'Message envoyé avec succès ! Je vous répondrai bientôt. 🚀');
           form.reset();
         } else {
           throw new Error('Erreur lors de l\'envoi');
         }
       } catch (error) {
-        // Erreur
-        formStatus.className = 'form-status error';
-        formStatus.textContent = 'Erreur lors de l\'envoi. Veuillez réessayer ou m\'envoyer un email directement.';
-        formStatus.style.display = 'block';
+        showStatus('error', 'Erreur lors de l\'envoi. Veuillez réessayer ou m\'envoyer un email directement. 📧');
       } finally {
         // Restaurer le bouton
         submitBtn.disabled = false;
-        btnText.style.display = 'inline';
+        btnText.style.display = 'flex';
         btnLoading.style.display = 'none';
       }
     });
+
+    function showStatus(type: 'success' | 'error', message: string) {
+      formStatus.className = `form-status ${type}`;
+      formStatus.textContent = message;
+      formStatus.style.display = 'block';
+      
+      // Auto-hide après 5 secondes pour les messages de succès
+      if (type === 'success') {
+        setTimeout(() => {
+          formStatus.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    function isValidEmail(email: string): boolean {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
   });
 </script>
-</qodoArtifact>

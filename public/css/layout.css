@@ -232,54 +232,66 @@
 
 /* Footer */
 .footer {
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: var(--spacing-lg) 0 var(--spacing-sm);
-    margin-top: var(--spacing-xl);
-    transition: var(--transition);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #ffffff;
+    padding: 4rem 0 0;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #64b5f6, transparent);
 }
 
 /* Support thème sombre pour le footer */
 [data-theme="dark"] .footer {
-    background: #1a1a1a;
-    color: #ffffff;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(100, 181, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(100, 181, 246, 0.1);
 }
 
 .footer-section h3 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--accent);
-    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #64b5f6;
+    border-bottom: 2px solid rgba(100, 181, 246, 0.2);
+    padding-bottom: 0.75rem;
 }
 
-.footer-section p {
-    color: var(--footer-text-muted);
-    margin-bottom: var(--spacing-xs);
-    transition: var(--transition);
-}
-
-.footer-section p:hover {
-    color: var(--footer-text);
-}
-
-.footer-link {
-    color: var(--footer-text-muted);
-    display: block;
-    margin-bottom: var(--spacing-xs);
-    transition: var(--transition);
-    padding: 2px 0;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: var(--accent);
-    padding-left: 5px;
+.footer-section h3 svg {
+    opacity: 0.8;
 }
 
 .social-links {
