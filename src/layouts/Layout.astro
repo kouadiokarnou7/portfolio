@@ -1,22 +1,238 @@
-<!doctype html>
-<html lang="en">
+---
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Mon Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/jpg" href="/favicon.jpg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		
+		<!-- Fichiers CSS séparés -->
+		<link rel="stylesheet" href="/css/reset.css">
+		<link rel="stylesheet" href="/css/variables.css">
+		<link rel="stylesheet" href="/css/layout.css">
+		<link rel="stylesheet" href="/css/components.css">
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Script pour éviter le flash du thème -->
+		<script is:inline>
+			// Charger le thème avant le rendu de la page
+			(function() {
+				const theme = localStorage.getItem('theme') || 'light';
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 	</head>
+	
 	<body>
-		<slot />
+		<!-- Header avec navigation -->
+		<header class="header">
+			<nav class="nav">
+				<div class="container">
+					<a href="#accueil" class="logo">Mon Portfolio</a>
+					
+					<ul class="nav-menu" id="nav-menu">
+						<li><a href="#accueil" class="nav-link">Accueil</a></li>
+						<li><a href="#apropos" class="nav-link">À propos</a></li>
+						<li><a href="#projets" class="nav-link">Outils & projets</a></li>
+						<li><a href="#contact" class="nav-link">Contact</a></li>
+					</ul>
+					
+					<div class="nav-actions">
+						<!-- Bouton de basculement du thème -->
+						<button class="theme-toggle" id="theme-toggle" aria-label="Basculer le thème">
+							<svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<circle cx="12" cy="12" r="5"></circle>
+								<line x1="12" y1="1" x2="12" y2="3"></line>
+								<line x1="12" y1="21" x2="12" y2="23"></line>
+								<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+								<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+								<line x1="1" y1="12" x2="3" y2="12"></line>
+								<line x1="21" y1="12" x2="23" y2="12"></line>
+								<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+							</svg>
+							<svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+							</svg>
+						</button>
+						
+						<!-- Bouton menu mobile -->
+						<button class="mobile-menu-btn" id="mobile-menu-btn">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Contenu principal -->
+		<main class="main">
+			<slot />
+		</main>
+
+		<!-- Footer devient la section Contact -->
+		<footer class="footer" id="contact">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>Contact</h3>
+						<p>karnoukouadiovianney@gmail.com</p>
+						<p>+225 07 08 03 03 93</p>
+						<p>Abidjan, Côte d'Ivoire</p>
+					</div>
+					
+					<div class="footer-section">
+						<h3>Réseaux</h3>
+						<div class="social-links">
+							<a href="https://github.com/votre-username" target="_blank" class="social-link">GitHub</a>
+							<a href="https://linkedin.com/in/votre-profil" target="_blank" class="social-link">LinkedIn</a>
+							<a href="https://twitter.com/votre-username" target="_blank" class="social-link">Twitter</a>
+						</div>
+					</div>
+					
+					<div class="footer-section">
+						<h3>Navigation</h3>
+						<a href="#accueil" class="footer-link">Accueil</a>
+						<a href="#apropos" class="footer-link">À propos</a>
+						<a href="#projets" class="footer-link">Outils & projets</a>
+						<a href=""></a>
+						<ul class="nav-menu" id="nav-menu">
+						<li><a href="#accueil" class="nav-link">Accueil</a></li>
+						<li><a href="#apropos" class="nav-link">À propos</a></li>
+						<li><a href="#projets" class="nav-link"></a></li>
+						<li><a href="#contact" class="nav-link">Contact</a></li>
+					</ul>
+					</div>
+				</div>
+				
+				<div class="footer-bottom">
+					<p>&copy; 2024 Kouadio Karnou Vianney. Tous droits réservés.</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script>
+			// Gestion du menu mobile
+			const mobileBtn = document.getElementById('mobile-menu-btn');
+			const navMenu = document.getElementById('nav-menu');
+			
+			mobileBtn?.addEventListener('click', () => {
+				navMenu?.classList.toggle('active');
+				mobileBtn?.classList.toggle('active');
+			});
+
+			// Gestion du thème sombre/clair
+			const themeToggle = document.getElementById('theme-toggle');
+			const html = document.documentElement;
+			
+			// Fonction pour mettre à jour l'icône du bouton
+			function updateThemeIcon() {
+				const currentTheme = html.getAttribute('data-theme');
+				const sunIcon = themeToggle?.querySelector('.sun-icon');
+				const moonIcon = themeToggle?.querySelector('.moon-icon');
+				
+				if (currentTheme === 'dark') {
+					(sunIcon as HTMLElement)?.style.setProperty('display', 'block');
+					(moonIcon as HTMLElement)?.style.setProperty('display', 'none');
+				} else {
+					(sunIcon as HTMLElement)?.style.setProperty('display', 'none');
+					(moonIcon as HTMLElement)?.style.setProperty('display', 'block');
+				}
+			}
+			
+			// Initialiser l'icône au chargement
+			updateThemeIcon();
+			
+			// Basculer le thème
+			themeToggle?.addEventListener('click', () => {
+				const currentTheme = html.getAttribute('data-theme');
+				const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+				
+				html.setAttribute('data-theme', newTheme);
+				localStorage.setItem('theme', newTheme);
+				updateThemeIcon();
+			});
+
+			// Fermer le menu mobile quand on clique sur un lien
+			const navLinks = document.querySelectorAll('.nav-link');
+			navLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					navMenu?.classList.remove('active');
+					mobileBtn?.classList.remove('active');
+				});
+			});
+
+			// Scroll fluide pour la navigation
+			document.documentElement.style.scrollBehavior = 'smooth';
+
+			// Mise en surbrillance du lien actif selon la section visible
+			function updateActiveLink() {
+				const sections = ['accueil', 'apropos', 'projets', 'contact'];
+				const navLinks = document.querySelectorAll('.nav-link');
+				
+				let currentSection = '';
+				
+				sections.forEach(sectionId => {
+					const section = document.getElementById(sectionId);
+					if (section) {
+						const rect = section.getBoundingClientRect();
+						if (rect.top <= 100 && rect.bottom >= 100) {
+							currentSection = sectionId;
+						}
+					}
+				});
+				
+				navLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('href') === `#${currentSection}`) {
+						link.classList.add('active');
+					}
+				});
+			}
+
+			// Écouter le scroll pour mettre à jour le lien actif
+			window.addEventListener('scroll', updateActiveLink);
+			
+			// Initialiser au chargement
+			updateActiveLink();
+		</script>
+
+		<style>
+			/* Scroll fluide */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Style pour le lien actif */
+			.nav-link.active {
+				color: var(--primary) !important;
+				background: var(--hover-bg) !important;
+			}
+
+			.nav-link.active::after {
+				width: 80% !important;
+			}
+		</style>
 	</body>
 </html>
+</qodoArtifact>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+

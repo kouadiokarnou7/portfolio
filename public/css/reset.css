@@ -1,0 +1,60 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8fafc;
+}
+
+/* Reset des listes */
+ul, ol {
+    list-style: none;
+}
+
+/* Reset des liens */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reset des boutons */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Reset des images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Reset des titres */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Reset des paragraphes */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Reset des inputs */
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+}

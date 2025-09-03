@@ -1,11 +1,220 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Accueil from '../components/accueil.astro';
+import Apropos from '../components/apropos.astro';
+// import Projets from '../components/Projets.astro';
+ import Contact from '../components/contact.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+  title="Portfolio - Kouadio Karnou Vianney" 
+  description="Développeur Web & Mobile passionné par la création d'applications modernes"
+>
+  <!-- Fond animé global -->
+  <div class="animated-background">
+    <div class="gradient-bg"></div>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+  </div>
+
+  <!-- Section Accueil -->
+  <Accueil 
+    imageSrc="/image1.jpg"
+    name="Kouadio Karnou Vianney"
+  />
+
+  <!-- Section À propos -->
+  <Apropos 
+    imageSrc="/moi3.png"
+    name="Kouadio Karnou Vianney"
+  />
+
+  <!-- Section Projets (à décommenter quand prêt) -->
+  <!-- <Projets /> -->
+
+  <!-- Section Contact (à décommenter quand prêt) -->
+  <Contact /> 
+
 </Layout>
+
+<style>
+  /* Fond animé global */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      #667eea 0%,
+      #764ba2 25%,
+      #f093fb 50%,
+      #f5576c 75%,
+      #4facfe 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Particules flottantes */
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+  }
+
+  .particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+  }
+
+  .particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+    animation-delay: 2s;
+    animation-duration: 25s;
+  }
+
+  .particle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 70%;
+    animation-delay: 4s;
+    animation-duration: 18s;
+  }
+
+  .particle:nth-child(4) {
+    width: 40px;
+    height: 40px;
+    left: 80%;
+    animation-delay: 6s;
+    animation-duration: 22s;
+  }
+
+  .particle:nth-child(5) {
+    width: 120px;
+    height: 120px;
+    left: 50%;
+    animation-delay: 8s;
+    animation-duration: 30s;
+  }
+
+  .particle:nth-child(6) {
+    width: 70px;
+    height: 70px;
+    left: 30%;
+    animation-delay: 10s;
+    animation-duration: 16s;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Adaptation du fond pour le thème sombre */
+  :global([data-theme="dark"]) .animated-background .gradient-bg {
+    background: linear-gradient(
+      45deg,
+      #1a1a2e 0%,
+      #16213e 25%,
+      #0f3460 50%,
+      #533483 75%,
+      #1a1a2e 100%
+    );
+  }
+
+  /* Style pour les sections avec effet glassmorphism */
+  :global(.accueil),
+  :global(.apropos) {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  :global([data-theme="dark"]) :global(.accueil),
+  :global([data-theme="dark"]) :global(.apropos) {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .particle {
+      display: none; /* Masquer les particules sur mobile */
+    }
+    
+    :global(.accueil),
+    :global(.apropos) {
+      margin: 10px;
+      border-radius: 15px;
+    }
+  }
+
+  /* Scroll smooth pour la navigation par ancres */
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+</style>
+</qodoArtifact>
+
